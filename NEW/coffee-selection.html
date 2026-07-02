@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Coffee Selection</title>
+    <meta name="description" content="Explore our unique blends and single-origin coffees.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bean Boutique</a>
+            <div class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coffee-selection.html" class="active">Coffee Selection</a></li>
+                <li><a href="brewing-equipment.html">Brewing Equipment</a></li>
+                <li><a href="events-workshops.html">Events & Workshops</a></li>
+                <li><a href="offers-subscriptions.html">Offers & Subscriptions</a></li>
+                <li><a href="shopping-cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 40vh; background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('images/hero_bg.png');">
+        <h1>Coffee Selection</h1>
+        <p>Discover our unique blends and single-origin roasts.</p>
+    </section>
+
+    <section class="container">
+        <!-- Animated Search -->
+        <div class="search-container">
+            <label for="searchInput" class="sr-only" style="display:none;">Search Coffee Blends</label>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search for blends, origins, or notes..." onkeyup="filterProducts()">
+        </div>
+
+        <!-- Catalogue Grid -->
+        <div class="catalogue-grid" id="product-grid">
+            <div class="product-card" data-name="ethiopian yirgacheffe floral citrus light roast">
+                <img src="images/artisan_blends.png" alt="Ethiopian Yirgacheffe">
+                <h3>Ethiopian Yirgacheffe</h3>
+                <p>Single Origin | Light Roast</p>
+                <p><strong>Tasting Notes:</strong> Floral, Lemon, Honey</p>
+                <p><strong>Brew Method:</strong> Pour Over</p>
+                <p class="price">£14.99</p>
+                <button class="btn add-to-cart" onclick="addToCart('Ethiopian Yirgacheffe', 14.99)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="colombian supremo chocolate nutty medium roast">
+                <img src="images/artisan_blends.png" alt="Colombian Supremo">
+                <h3>Colombian Supremo</h3>
+                <p>Single Origin | Medium Roast</p>
+                <p><strong>Tasting Notes:</strong> Dark Chocolate, Walnut</p>
+                <p><strong>Brew Method:</strong> Espresso, Aeropress</p>
+                <p class="price">£12.50</p>
+                <button class="btn add-to-cart" onclick="addToCart('Colombian Supremo', 12.50)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="sumatra mandheling earthy spicy dark roast">
+                <img src="images/artisan_blends.png" alt="Sumatra Mandheling">
+                <h3>Sumatra Mandheling</h3>
+                <p>Single Origin | Dark Roast</p>
+                <p><strong>Tasting Notes:</strong> Earthy, Cedar, Spice</p>
+                <p><strong>Brew Method:</strong> French Press</p>
+                <p class="price">£13.75</p>
+                <button class="btn add-to-cart" onclick="addToCart('Sumatra Mandheling', 13.75)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-name="house espresso blend rich bold">
+                <img src="images/artisan_blends.png" alt="House Espresso Blend">
+                <h3>House Espresso Blend</h3>
+                <p>Signature Blend | Medium-Dark Roast</p>
+                <p><strong>Tasting Notes:</strong> Caramel, Cocoa, Hazelnut</p>
+                <p><strong>Brew Method:</strong> Espresso Machine</p>
+                <p class="price">£15.00</p>
+                <button class="btn add-to-cart" onclick="addToCart('House Espresso Blend', 15.00)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Plugins Area -->
+        <div class="plugins-container">
+            <!-- Plugin 2: Social Media Feed Widget (Mockup using blockquote) -->
+            <div class="plugin-box">
+                <h4>Follow Us on Social Media</h4>
+                <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Just roasted a fresh batch of Ethiopian Yirgacheffe! The floral notes are incredible this season. ☕️🌸 <a href="#">#BeanBoutique</a> <a href="#">#SpecialtyCoffee</a></p>&mdash; Bean Boutique (@BeanBoutiqueShop) <a href="#">June 2, 2026</a></blockquote>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            
+            <!-- Plugin 3: Security Feature / Trust Badge -->
+            <div class="plugin-box trust-badge">
+                <h4>Verified Secure Shopping</h4>
+                <!-- Simulated SSL/Security trust badge widget -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Norton_by_Symantec_logo.svg/1024px-Norton_by_Symantec_logo.svg.png" style="max-width: 120px; margin-top:10px;" alt="Norton Secure Seal">
+                <p style="font-size: 0.8rem; margin-top:10px;">Your connection to this site is secured and encrypted.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="index.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Animated Text Search Filtering
+        function filterProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('product-grid');
+            const cards = grid.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const searchData = cards[i].getAttribute('data-name');
+                if (searchData.indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // Cart Functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        document.getElementById('cart-count').innerText = cart.length;
+
+        function addToCart(name, price) {
+            cart.push({ name: name, price: price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('cart-count').innerText = cart.length;
+            alert(name + " added to your cart!");
+        }
+    </script>
+</body>
+</html>

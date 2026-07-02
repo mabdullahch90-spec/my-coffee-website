@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Selection - Bean Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">☕ Bean Boutique</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="coffee.html">Coffee Selection</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="subscriptions.html">Subscriptions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="background: linear-gradient(rgba(111, 78, 55, 0.7), rgba(111, 78, 55, 0.7)), url('https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=1200') center/cover;">
+        <h1>Our Coffee Collection</h1>
+        <p>Explore Our Curated Selection of Premium Blends</p>
+    </section>
+
+    <!-- SEARCH FUNCTIONALITY (PLUGIN 1) -->
+    <section class="section">
+        <h2>Find Your Perfect Coffee</h2>
+        <div class="search-container">
+            <input type="text" id="searchBar" class="search-bar" placeholder="Search by origin, roast level, flavor profile...">
+            <div id="searchResults" class="search-results"></div>
+        </div>
+    </section>
+
+    <!-- COFFEE CATALOGUE -->
+    <section class="section">
+        <h2>Coffee Blends & Single Origins</h2>
+        <div class="card-grid">
+            <!-- Single Origin Coffees -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="Ethiopian Yirgacheffe">
+                <h3>Ethiopian Yirgacheffe</h3>
+                <p><strong>Origin:</strong> Ethiopia</p>
+                <p><strong>Roast Level:</strong> Light</p>
+                <p><strong>Tasting Notes:</strong> Bright citrus, floral, fruity</p>
+                <p><strong>Brewing Method:</strong> Pour Over, Aeropress</p>
+                <p>A classic single-origin with exceptional clarity and complexity. The natural processing brings out berry and wine-like notes.</p>
+                <div class="card-price">$24.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Ethiopian Yirgacheffe', 24.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="Kenyan AA">
+                <h3>Kenyan AA Single Origin</h3>
+                <p><strong>Origin:</strong> Kenya</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Black currant, jasmine, balanced acidity</p>
+                <p><strong>Brewing Method:</strong> Espresso, Pour Over, French Press</p>
+                <p>Award-winning Kenyan AA with vibrant flavors and smooth body. Perfect for those seeking complexity and elegance.</p>
+                <div class="card-price">$26.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Kenyan AA Single Origin', 26.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300" alt="Colombian Huila">
+                <h3>Colombian Huila Geisha</h3>
+                <p><strong>Origin:</strong> Colombia</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Caramel, chocolate, nuts, balanced</p>
+                <p><strong>Brewing Method:</strong> All methods</p>
+                <p>Rich and balanced single-origin with smooth body. Excellent for everyday enjoyment and special occasions.</p>
+                <div class="card-price">$22.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Colombian Huila Geisha', 22.99)">Add to Cart</button>
+            </div>
+
+            <!-- Espresso Blends -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300" alt="Italian Roast">
+                <h3>Italian Espresso Blend</h3>
+                <p><strong>Blend:</strong> Italian Style</p>
+                <p><strong>Roast Level:</strong> Dark</p>
+                <p><strong>Tasting Notes:</strong> Bold, smoky, chocolate, espresso crema</p>
+                <p><strong>Brewing Method:</strong> Espresso, Moka Pot</p>
+                <p>Traditional dark roast blend designed specifically for espresso. Creates thick crema and bold flavors.</p>
+                <div class="card-price">$18.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Italian Espresso Blend', 18.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="House Blend">
+                <h3>House Signature Blend</h3>
+                <p><strong>Blend:</strong> Our Custom Creation</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Smooth, versatile, subtle sweetness</p>
+                <p><strong>Brewing Method:</strong> All methods</p>
+                <p>Our most popular blend, perfect for those seeking consistent quality. Great for daily brewing.</p>
+                <div class="card-price">$16.99 / 250g</div>
+                <button class="btn" onclick="addToCart('House Signature Blend', 16.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688544566?w=300" alt="Seasonal Reserve">
+                <h3>Seasonal Reserve Blend</h3>
+                <p><strong>Blend:</strong> Limited Edition</p>
+                <p><strong>Roast Level:</strong> Medium-Dark</p>
+                <p><strong>Tasting Notes:</strong> Complex, layered, unique</p>
+                <p><strong>Brewing Method:</strong> All methods</p>
+                <p>Changes quarterly with exclusive origins. Always something new to explore.</p>
+                <div class="card-price">$21.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Seasonal Reserve Blend', 21.99)">Add to Cart</button>
+            </div>
+
+            <!-- Specialty Coffees -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300" alt="Decaffeinated">
+                <h3>Decaffeinated Blend</h3>
+                <p><strong>Type:</strong> Decaf</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Rich, smooth, full-bodied</p>
+                <p><strong>Brewing Method:</strong> All methods</p>
+                <p>Swiss water-processed decaf that doesn't compromise on flavor.</p>
+                <div class="card-price">$17.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Decaffeinated Blend', 17.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="Cold Brew">
+                <h3>Cold Brew Concentrate</h3>
+                <p><strong>Type:</strong> Prepared Concentrate</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Smooth, sweet, low acidity</p>
+                <p><strong>Brewing Method:</strong> Ready to drink</p>
+                <p>Pre-made cold brew concentrate for quick, delicious iced coffee.</p>
+                <div class="card-price">$14.99 / 500ml</div>
+                <button class="btn" onclick="addToCart('Cold Brew Concentrate', 14.99)">Add to Cart</button>
+            </div>
+
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300" alt="Organic Fair Trade">
+                <h3>Organic Fair Trade Blend</h3>
+                <p><strong>Certification:</strong> Organic & Fair Trade</p>
+                <p><strong>Roast Level:</strong> Medium</p>
+                <p><strong>Tasting Notes:</strong> Earthy, balanced, ethical</p>
+                <p><strong>Brewing Method:</strong> All methods</p>
+                <p>Sustainably sourced blend supporting farmers and the environment.</p>
+                <div class="card-price">$19.99 / 250g</div>
+                <button class="btn" onclick="addToCart('Organic Fair Trade Blend', 19.99)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CUSTOMER TESTIMONIALS (PLUGIN 2) -->
+    <section class="section">
+        <h2>Customer Reviews</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Exceptional Quality</h3>
+                <p>"The Ethiopian Yirgacheffe is outstanding! Fresh, vibrant, and exactly what a single-origin should be. I'm a customer for life." - Sarah M.</p>
+            </div>
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Best House Blend Ever</h3>
+                <p>"Tried the House Signature Blend and haven't switched back since. Perfect balance, great value, and consistent quality." - James T.</p>
+            </div>
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Freshly Roasted</h3>
+                <p>"You can taste the freshness in every cup. The team really cares about quality. Highly recommended!" - Lisa K.</p>
+            </div>
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Worth Every Penny</h3>
+                <p>"Invested in their specialty coffee and expensive equipment. Best decision ever. The flavor difference is incredible." - Michael R.</p>
+            </div>
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Perfect Gift</h3>
+                <p>"Bought their sampler pack as a gift. My friend absolutely loved exploring different origins. Great packaging too!" - Emma W.</p>
+            </div>
+            <div class="card">
+                <h3>⭐⭐⭐⭐⭐ Subscription Service</h3>
+                <p>"Love getting a new coffee every month. The subscription takes the guesswork out of what to buy. Highly convenient!" - David P.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BREWING TIPS -->
+    <section class="section">
+        <h2>Coffee Brewing Guide</h2>
+        <div class="card-grid">
+            <div class="card" data-searchable>
+                <h3>Pour Over Brewing</h3>
+                <p><strong>Temperature:</strong> 195-205°F (90-96°C)</p>
+                <p><strong>Ratio:</strong> 1:16 (coffee to water)</p>
+                <p><strong>Time:</strong> 3-4 minutes</p>
+                <p>Best for single-origin coffees. Provides full flavor clarity and control.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>French Press</h3>
+                <p><strong>Temperature:</strong> 200-205°F (93-96°C)</p>
+                <p><strong>Ratio:</strong> 1:15 (coffee to water)</p>
+                <p><strong>Time:</strong> 4 minutes</p>
+                <p>Creates full-bodied coffee with bold flavors. Great for exploring blend characteristics.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>Espresso</h3>
+                <p><strong>Temperature:</strong> 200-205°F (93-96°C)</p>
+                <p><strong>Pressure:</strong> 9 bars</p>
+                <p><strong>Time:</strong> 25-30 seconds extraction</p>
+                <p>Concentrated shot with rich crema. Perfect for milk-based drinks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Bean Boutique</h3>
+                    <p>Premium coffee and brewing equipment for enthusiasts worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="coffee.html">Coffee Selection</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@beanboutique.com">Email Us</a></li>
+                        <li><a href="tel:+61312345678">Call Us</a></li>
+                        <li>Monday - Sunday: 7AM - 6PM</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+                <p>Designed with ☕ for coffee lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Shopping Cart</title>
+    <meta name="description" content="View your cart and checkout.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bean Boutique</a>
+            <div class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coffee-selection.html">Coffee Selection</a></li>
+                <li><a href="brewing-equipment.html">Brewing Equipment</a></li>
+                <li><a href="events-workshops.html">Events & Workshops</a></li>
+                <li><a href="offers-subscriptions.html">Offers & Subscriptions</a></li>
+                <li><a href="shopping-cart.html" class="active">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container" style="min-height: 60vh;">
+        <h1 class="section-title">Your Cart</h1>
+        
+        <div class="cart-container" id="cart-items-container">
+            <!-- Cart items will be injected here via JavaScript -->
+            <p id="empty-cart-msg">Your cart is currently empty.</p>
+        </div>
+        
+        <div class="cart-total" id="cart-total-container" style="display:none;">
+            Total: <span id="cart-total-price">£0.00</span>
+            <br>
+            <button class="btn checkout-btn" onclick="alert('Checkout process will be available once online transactions are enabled. Thank you for testing!'); localStorage.removeItem('cart'); location.reload();">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="index.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart Display Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+            
+            const container = document.getElementById('cart-items-container');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+            const totalContainer = document.getElementById('cart-total-container');
+            const totalPriceEl = document.getElementById('cart-total-price');
+            
+            if (cart.length > 0) {
+                emptyMsg.style.display = 'none';
+                totalContainer.style.display = 'block';
+                
+                let total = 0;
+                container.innerHTML = ''; // Clear container
+                
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'cart-item';
+                    itemDiv.innerHTML = `
+                        <div>
+                            <h4>${item.name}</h4>
+                            <p>£${item.price.toFixed(2)}</p>
+                        </div>
+                        <button class="btn" style="padding: 5px 10px; font-size: 0.8rem; background-color: #eee;" onclick="removeItem(${index})">Remove</button>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+                
+                totalPriceEl.innerText = `£${total.toFixed(2)}`;
+            }
+        });
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload(); // Quick refresh to update UI
+        }
+    </script>
+</body>
+</html>

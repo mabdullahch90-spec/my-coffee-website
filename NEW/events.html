@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Workshops - Bean Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">☕ Bean Boutique</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="coffee.html">Coffee Selection</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="subscriptions.html">Subscriptions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="background: linear-gradient(rgba(111, 78, 55, 0.7), rgba(111, 78, 55, 0.7)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200') center/cover;">
+        <h1>Events & Workshops</h1>
+        <p>Learn, Connect, and Celebrate Coffee Culture</p>
+    </section>
+
+    <!-- UPCOMING EVENTS -->
+    <section class="section">
+        <h2>Upcoming Events</h2>
+        <div class="card-grid">
+            <!-- Event 1 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300" alt="Coffee Tasting">
+                <h3>☕ Coffee Tasting Masterclass</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 August 15, 2026 | 2:00 PM - 4:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Main Store</p>
+                <p>Explore 5 different single-origin coffees with our expert tasters. Learn to identify flavor profiles, understand tasting notes, and discover your preferences.</p>
+                <p><strong>Includes:</strong> Coffee samples, tasting notes guide, 15% discount voucher</p>
+                <p><strong>Price:</strong> $45 per person</p>
+                <button class="btn" onclick="showRegistration('Coffee Tasting Masterclass', 'August 15, 2026')">Register Now</button>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="Espresso Training">
+                <h3>🎯 Espresso Extraction Techniques</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 August 22, 2026 | 6:00 PM - 8:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Training Center</p>
+                <p>Hands-on workshop covering espresso machine operation, grinding techniques, tamping pressure, and extraction timing. Bring your own machine or use ours.</p>
+                <p><strong>Includes:</strong> Equipment use, coffee beans, personal guidance</p>
+                <p><strong>Price:</strong> $55 per person</p>
+                <button class="btn" onclick="showRegistration('Espresso Extraction Techniques', 'August 22, 2026')">Register Now</button>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300" alt="Meet the Roaster">
+                <h3>🤝 Meet the Roaster</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 August 29, 2026 | 3:00 PM - 5:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Roastery</p>
+                <p>Meet our master roaster and tour our roasting facility. Understand the roasting process, how it affects flavor, and the science behind the perfect roast.</p>
+                <p><strong>Includes:</strong> Facility tour, roasting demonstration, fresh-roasted samples</p>
+                <p><strong>Price:</strong> $30 per person</p>
+                <button class="btn" onclick="showRegistration('Meet the Roaster', 'August 29, 2026')">Register Now</button>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300" alt="Brewing Methods">
+                <h3>🍵 Alternative Brewing Methods Workshop</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 September 5, 2026 | 10:00 AM - 12:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Main Store</p>
+                <p>Master French Press, Pour Over, AeroPress, and Moka Pot brewing. Learn different extraction methods and how to choose the right one for your coffee.</p>
+                <p><strong>Includes:</strong> Equipment demonstrations, coffee samples, brewing guide</p>
+                <p><strong>Price:</strong> $40 per person</p>
+                <button class="btn" onclick="showRegistration('Alternative Brewing Methods Workshop', 'September 5, 2026')">Register Now</button>
+            </div>
+
+            <!-- Event 5 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1447933601403-0c6688544566?w=300" alt="Latte Art">
+                <h3>🎨 Latte Art & Milk Steaming Workshop</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 September 12, 2026 | 5:00 PM - 7:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Training Center</p>
+                <p>Learn professional milk steaming techniques and create beautiful latte art. Perfect for baristas and home enthusiasts wanting café-quality drinks.</p>
+                <p><strong>Includes:</strong> Equipment use, milk, espresso, one-on-one coaching</p>
+                <p><strong>Price:</strong> $50 per person</p>
+                <button class="btn" onclick="showRegistration('Latte Art & Milk Steaming Workshop', 'September 12, 2026')">Register Now</button>
+            </div>
+
+            <!-- Event 6 -->
+            <div class="card" data-searchable>
+                <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b3f3?w=300" alt="Coffee & Food Pairing">
+                <h3>👨‍🍳 Coffee & Food Pairing Experience</h3>
+                <div style="color: var(--secondary-color); font-weight: bold; margin: 1rem 0;">
+                    📅 September 19, 2026 | 7:00 PM - 9:00 PM
+                </div>
+                <p><strong>Location:</strong> Bean Boutique Café</p>
+                <p>Discover how different coffees pair with pastries, chocolates, and savory foods. Learn flavor complementation and create memorable taste experiences.</p>
+                <p><strong>Includes:</strong> Coffee samples, artisan pastries, food pairings</p>
+                <p><strong>Price:</strong> $65 per person</p>
+                <button class="btn" onclick="showRegistration('Coffee & Food Pairing Experience', 'September 19, 2026')">Register Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION MODAL -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeRegistration()">&times;</button>
+            <h2 id="eventTitle">Event Registration</h2>
+            <p id="eventDate" style="color: var(--secondary-color); font-weight: bold; margin-bottom: 1.5rem;"></p>
+            
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address *</label>
+                    <input type="email" id="regEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="attendees">Number of Attendees *</label>
+                    <select id="attendees" name="attendees" required>
+                        <option value="">Select number</option>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5+ People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dietary">Dietary Requirements</label>
+                    <input type="text" id="dietary" name="dietary" placeholder="e.g., Vegan, Gluten-free, Nut allergy">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="newsletter" checked>
+                        Subscribe to our newsletter for exclusive event updates
+                    </label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Complete Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAST EVENTS SHOWCASE -->
+    <section class="section" style="background: var(--white);">
+        <h2>Past Events Highlights</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Join our thriving community of coffee enthusiasts!</p>
+        <div class="card-grid">
+            <div class="card" data-searchable>
+                <h3>✨ 50+ Satisfied Attendees</h3>
+                <p>Our Coffee Tasting Masterclass has welcomed over 50 enthusiastic participants.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>⭐ 4.9/5 Average Rating</h3>
+                <p>Consistently excellent feedback from workshop participants worldwide.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>🏆 Expert Instructors</h3>
+                <p>Learn from certified baristas and master roasters with 15+ years experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <h2>Event FAQs</h2>
+        <div class="card-grid">
+            <div class="card" data-searchable>
+                <h3>❓ Are events for beginners?</h3>
+                <p>Yes! All our events cater to different skill levels, from complete beginners to advanced enthusiasts.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ What if I need to cancel?</h3>
+                <p>Full refund available up to 7 days before the event. Contact us for cancellation.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ How long are workshops?</h3>
+                <p>Most workshops are 2 hours. All events include refreshments and materials.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ Do I need prior experience?</h3>
+                <p>No experience necessary! We provide all instruction and equipment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Bean Boutique</h3>
+                    <p>Premium coffee and brewing equipment for enthusiasts worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="coffee.html">Coffee Selection</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@beanboutique.com">Email Us</a></li>
+                        <li><a href="tel:+61312345678">Call Us</a></li>
+                        <li>Monday - Sunday: 7AM - 6PM</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+                <p>Designed with ☕ for coffee lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function showRegistration(eventName, eventDate) {
+            document.getElementById('eventTitle').textContent = eventName;
+            document.getElementById('eventDate').textContent = '📅 ' + eventDate;
+            document.getElementById('registrationModal').classList.add('active');
+        }
+
+        function closeRegistration() {
+            document.getElementById('registrationModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('registrationModal');
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

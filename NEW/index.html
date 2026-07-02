@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Home</title>
+    <meta name="description" content="Bean Boutique Coffee Shop - Premium coffee blends and equipment.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bean Boutique</a>
+            <div class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="coffee-selection.html">Coffee Selection</a></li>
+                <li><a href="brewing-equipment.html">Brewing Equipment</a></li>
+                <li><a href="events-workshops.html">Events & Workshops</a></li>
+                <li><a href="offers-subscriptions.html">Offers & Subscriptions</a></li>
+                <li><a href="shopping-cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('images/hero_bg.png'); background-size: cover; background-position: center;">
+        <h1>Welcome to Bean Boutique</h1>
+        <p>Experience the warmth and community of finely roasted, single-origin coffees.</p>
+        <a href="coffee-selection.html" class="btn">Explore Our Blends</a>
+    </section>
+
+    <!-- Featured Sections (Visual heavy, minimal text) -->
+    <section class="container">
+        <h2 class="section-title">Discover Our World</h2>
+        <div class="featured-grid">
+            <div class="featured-box" onclick="location.href='coffee-selection.html';">
+                <img src="images/artisan_blends.png" alt="Fresh Coffee Beans">
+                <div class="featured-content">
+                    <h3>Artisan Blends</h3>
+                    <p>Hand-selected single-origin beans roasted to perfection.</p>
+                </div>
+            </div>
+            <div class="featured-box" onclick="location.href='brewing-equipment.html';">
+                <img src="images/brewing_equipment.png" alt="Brewing Equipment">
+                <div class="featured-content">
+                    <h3>Brewing Equipment</h3>
+                    <p>Elevate your home brewing experience with premium gear.</p>
+                </div>
+            </div>
+            <div class="featured-box" onclick="location.href='events-workshops.html';">
+                <img src="images/coffee_event.png" alt="Coffee Community Event">
+                <div class="featured-content">
+                    <h3>Community Events</h3>
+                    <p>Join our tasting sessions and meet-the-roaster workshops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plugin 1: Interactive Map -->
+    <section class="container plugin-section">
+        <h2 class="section-title">Find Us</h2>
+        <div class="map-container">
+            <!-- Google Maps Embed Plugin -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.18237072596!2d-0.10159865000000001!3d51.52864165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1717282585913!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map Location of Bean Boutique"></iframe>
+        </div>
+    </section>
+
+    <!-- Modal Popup for first-time visitors -->
+    <div id="welcome-modal" class="modal" role="dialog" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <span class="close" id="close-modal" aria-label="Close modal">&times;</span>
+            <h2 id="modal-title">Welcome to Bean Boutique!</h2>
+            <p>Sign up for our newsletter and get <strong>10% off</strong> your first purchase.</p>
+            <form id="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); document.getElementById('welcome-modal').style.display='none';">
+                <label for="email" class="sr-only" style="display:none;">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn">Get Discount</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="index.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Modal Logic
+        window.addEventListener('load', () => {
+            // Check local storage to see if user has visited before
+            if (!localStorage.getItem('hasVisited')) {
+                setTimeout(() => {
+                    document.getElementById('welcome-modal').style.display = 'block';
+                }, 2000); // 2 second delay
+                localStorage.setItem('hasVisited', 'true');
+            }
+        });
+
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('welcome-modal').style.display = 'none';
+        });
+
+        // Close modal if user clicks outside of it
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('welcome-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Cart Count Init
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+        });
+    </script>
+</body>
+</html>
