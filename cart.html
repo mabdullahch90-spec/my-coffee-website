@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Bean Boutique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">☕ Bean Boutique</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="coffee.html">Coffee Selection</a></li>
+                    <li><a href="equipment.html">Equipment</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="subscriptions.html">Subscriptions</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="background: linear-gradient(rgba(111, 78, 55, 0.7), rgba(111, 78, 55, 0.7)), url('https://images.unsplash.com/photo-1447933601403-0c6688544566?w=1200') center/cover;">
+        <h1>Your Shopping Cart</h1>
+        <p>Review and Manage Your Order</p>
+    </section>
+
+    <!-- CART CONTENT -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Cart Items -->
+                <div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1.5rem;">Items in Your Cart</h2>
+                    <div id="cartItems">
+                        <p style="text-align: center; color: #999; padding: 2rem;">Your cart is empty</p>
+                    </div>
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <a href="coffee.html" class="btn" style="margin-right: 1rem;">Continue Shopping Coffee</a>
+                        <a href="equipment.html" class="btn btn-secondary">Continue Shopping Equipment</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div>
+                    <div class="cart-summary">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Order Summary</h3>
+                        <div class="cart-summary-row">
+                            <span>Subtotal:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Shipping:</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Tax (estimated):</span>
+                            <span>$0.00</span>
+                        </div>
+                        <div style="border-top: 2px solid var(--primary-color); padding-top: 1rem; margin-top: 1rem;">
+                            <div class="cart-total" id="cartTotal">
+                                Total: <strong>$0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Checkout Section -->
+                    <div style="margin-top: 2rem; background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                        <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Checkout</h3>
+                        <form id="checkoutForm" onsubmit="handleCheckout(event)">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Shipping Address *</label>
+                                <input type="text" id="address" name="address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="postcode">Postcode *</label>
+                                <input type="text" id="postcode" name="postcode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="shippingMethod">Shipping Method *</label>
+                                <select id="shippingMethod" name="shippingMethod" required>
+                                    <option value="">Select shipping method</option>
+                                    <option value="standard">Standard (5-7 business days) - FREE</option>
+                                    <option value="express">Express (2-3 business days) - $9.99</option>
+                                    <option value="overnight">Overnight - $24.99</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="agreeTerms" required>
+                                    I agree to the Terms & Conditions and Privacy Policy
+                                </label>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%; padding: 1rem;">Proceed to Payment</button>
+                        </form>
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 1rem; text-align: center;">
+                            🔒 Secure checkout powered by industry-standard encryption
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHIPPING & RETURNS INFO -->
+    <section class="section" style="background: var(--white);">
+        <h2>Shipping & Returns</h2>
+        <div class="card-grid">
+            <div class="card" data-searchable>
+                <h3>📦 Shipping Options</h3>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                    <li><strong>Standard Shipping:</strong> 5-7 business days - FREE</li>
+                    <li><strong>Express Shipping:</strong> 2-3 business days - $9.99</li>
+                    <li><strong>Overnight:</strong> Next business day - $24.99</li>
+                    <li>Orders placed before 2 PM ship same day</li>
+                    <li>Free shipping on orders over $75</li>
+                </ul>
+            </div>
+            <div class="card" data-searchable>
+                <h3>↩️ Returns Policy</h3>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                    <li>30-day money-back guarantee</li>
+                    <li>Return unopened coffee for full refund</li>
+                    <li>Equipment covered by 1-year warranty</li>
+                    <li>Free returns on defective items</li>
+                    <li>Contact us within 30 days of purchase</li>
+                </ul>
+            </div>
+            <div class="card" data-searchable>
+                <h3>🚚 Tracking</h3>
+                <ul style="list-style: disc; margin-left: 1.5rem;">
+                    <li>Tracking number emailed immediately</li>
+                    <li>Real-time tracking available</li>
+                    <li>Signature required for orders over $100</li>
+                    <li>Safe packaging ensured</li>
+                    <li>Insurance included on all orders</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="card-grid">
+            <div class="card" data-searchable>
+                <h3>❓ How long does coffee stay fresh?</h3>
+                <p>Properly stored coffee beans stay fresh for 2-4 weeks after roasting. We recommend buying small quantities frequently for optimal freshness.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ Can I change my order?</h3>
+                <p>Orders can be modified within 1 hour of placement. Contact us immediately at info@beanboutique.com with your order number.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ Do you offer bulk discounts?</h3>
+                <p>Yes! Orders of 5+ items receive 10% discount. Contact our sales team for wholesale pricing.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ What payment methods do you accept?</h3>
+                <p>We accept all major credit cards (Visa, MasterCard, Amex), PayPal, and Apple Pay for secure transactions.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ Is international shipping available?</h3>
+                <p>Yes, we ship to most countries. International shipping costs vary by location. Contact us for a quote.</p>
+            </div>
+            <div class="card" data-searchable>
+                <h3>❓ What if my item arrives damaged?</h3>
+                <p>We'll replace any damaged items free of charge. Please report damage within 48 hours with photos for quick resolution.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BADGES -->
+    <section class="section">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+            <div style="padding: 2rem; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">✅</div>
+                <p><strong>Money-Back Guarantee</strong></p>
+                <p style="color: #999; font-size: 0.9rem;">30-day guarantee if not satisfied</p>
+            </div>
+            <div style="padding: 2rem; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔒</div>
+                <p><strong>Secure Payments</strong></p>
+                <p style="color: #999; font-size: 0.9rem;">SSL encrypted transactions</p>
+            </div>
+            <div style="padding: 2rem; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📦</div>
+                <p><strong>Fast Shipping</strong></p>
+                <p style="color: #999; font-size: 0.9rem;">Same-day dispatch available</p>
+            </div>
+            <div style="padding: 2rem; background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                <p><strong>Expert Support</strong></p>
+                <p style="color: #999; font-size: 0.9rem;">Responsive customer service 7 days</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Bean Boutique</h3>
+                    <p>Premium coffee and brewing equipment for enthusiasts worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="coffee.html">Coffee Selection</a></li>
+                        <li><a href="equipment.html">Equipment</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:info@beanboutique.com">Email Us</a></li>
+                        <li><a href="tel:+61312345678">Call Us</a></li>
+                        <li>Monday - Sunday: 7AM - 6PM</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+                <p>Designed with ☕ for coffee lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function handleCheckout(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            let ordersData = JSON.parse(localStorage.getItem('orders')) || [];
+            ordersData.push({
+                items: JSON.parse(localStorage.getItem('cart')),
+                customer: Object.fromEntries(formData),
+                date: new Date().toLocaleString(),
+                status: 'Pending Payment'
+            });
+            
+            localStorage.setItem('orders', JSON.stringify(ordersData));
+            alert('Order placed successfully! Your order number is #' + ordersData.length + '. Thank you for shopping with Bean Boutique!');
+            localStorage.removeItem('cart');
+            location.href = 'index.html';
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

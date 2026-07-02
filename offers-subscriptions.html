@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Offers & Subscriptions</title>
+    <meta name="description" content="Coffee subscriptions and special promotional offers.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bean Boutique</a>
+            <div class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coffee-selection.html">Coffee Selection</a></li>
+                <li><a href="brewing-equipment.html">Brewing Equipment</a></li>
+                <li><a href="events-workshops.html">Events & Workshops</a></li>
+                <li><a href="offers-subscriptions.html" class="active">Offers & Subscriptions</a></li>
+                <li><a href="shopping-cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 40vh; background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('images/hero_bg.png');">
+        <h1>Special Offers & Subscriptions</h1>
+        <p>Freshly roasted coffee delivered right to your door.</p>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Special Promotions</h2>
+        <div style="background-color: var(--secondary-color); color: var(--primary-color); padding: 2rem; border-radius: 8px; text-align: center; margin-bottom: 4rem;">
+            <h3>Summer Brew Sale!</h3>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">Get 20% off all cold brew equipment and select light roasts.</p>
+            <p>Use code: <strong>SUMMERBREW20</strong> at checkout.</p>
+        </div>
+
+        <h2 class="section-title">Subscription Plans</h2>
+        <div class="subscription-tiers">
+            
+            <div class="tier">
+                <h3>The Explorer</h3>
+                <p class="price">£12<span>/mo</span></p>
+                <ul>
+                    <li>1x 250g bag of single-origin coffee</li>
+                    <li>Delivery once a month</li>
+                    <li>Tasting notes included</li>
+                </ul>
+                <button class="btn" style="width: 100%;" onclick="alert('Subscription feature coming soon!')">Subscribe</button>
+            </div>
+
+            <div class="tier popular">
+                <h3>The Enthusiast</h3>
+                <p class="price">£22<span>/mo</span></p>
+                <ul>
+                    <li>2x 250g bags of featured coffees</li>
+                    <li>Delivery twice a month</li>
+                    <li>Tasting notes & brew guides</li>
+                    <li>10% off equipment</li>
+                </ul>
+                <button class="btn" style="width: 100%;" onclick="alert('Subscription feature coming soon!')">Subscribe</button>
+            </div>
+
+            <div class="tier">
+                <h3>The Connoisseur</h3>
+                <p class="price">£40<span>/mo</span></p>
+                <ul>
+                    <li>4x 250g bags of premium coffees</li>
+                    <li>Weekly deliveries</li>
+                    <li>Exclusive first-access to rare lots</li>
+                    <li>Free shipping on all orders</li>
+                </ul>
+                <button class="btn" style="width: 100%;" onclick="alert('Subscription feature coming soon!')">Subscribe</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="index.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart Count Init
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+        });
+    </script>
+</body>
+</html>

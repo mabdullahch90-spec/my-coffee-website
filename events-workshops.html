@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Events & Workshops</title>
+    <meta name="description" content="Sign up for our upcoming coffee tasting events and workshops.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Bean Boutique</a>
+            <div class="hamburger" id="hamburger" tabindex="0" role="button" aria-label="Menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="coffee-selection.html">Coffee Selection</a></li>
+                <li><a href="brewing-equipment.html">Brewing Equipment</a></li>
+                <li><a href="events-workshops.html" class="active">Events & Workshops</a></li>
+                <li><a href="offers-subscriptions.html">Offers & Subscriptions</a></li>
+                <li><a href="shopping-cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="height: 40vh; background-image: linear-gradient(rgba(62, 39, 35, 0.7), rgba(62, 39, 35, 0.7)), url('images/hero_bg.png');">
+        <h1>Events & Workshops</h1>
+        <p>Learn, taste, and connect with our coffee community.</p>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="catalogue-grid" style="margin-bottom: 4rem;">
+            <div class="product-card">
+                <h3>Introduction to Cupping</h3>
+                <p><strong>Date:</strong> August 12, 2026</p>
+                <p>Learn the professional method of evaluating coffee flavor profiles with our head roaster.</p>
+            </div>
+            <div class="product-card">
+                <h3>Latte Art Masterclass</h3>
+                <p><strong>Date:</strong> August 19, 2026</p>
+                <p>Hands-on practice to perfect your milk steaming and pouring techniques.</p>
+            </div>
+            <div class="product-card">
+                <h3>Meet the Roaster</h3>
+                <p><strong>Date:</strong> September 5, 2026</p>
+                <p>A casual Q&A session exploring our sourcing practices and roasting philosophy.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Register for an Event</h2>
+        <!-- Registration Form (Submit via email) -->
+        <div class="registration-form">
+            <form action="mailto:hello@beanboutique.test" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="FirstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="LastName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="event">Select Event</label>
+                    <select id="event" name="Event" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit;">
+                        <option value="cupping">Introduction to Cupping</option>
+                        <option value="latte_art">Latte Art Masterclass</option>
+                        <option value="meet_roaster">Meet the Roaster</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%;">Register Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bean Boutique Coffee Shop. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="index.html">Privacy Policy</a>
+            <a href="index.html">Terms of Service</a>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart Count Init
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            document.getElementById('cart-count').innerText = cart.length;
+        });
+    </script>
+</body>
+</html>
